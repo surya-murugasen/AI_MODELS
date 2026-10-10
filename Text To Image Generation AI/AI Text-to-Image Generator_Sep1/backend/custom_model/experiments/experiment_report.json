@@ -1,0 +1,521 @@
+{
+  "step": "Step 7: Experimentation & Hyperparameter Tuning",
+  "completed_at": "2026-08-22T09:08:42.473653+00:00",
+  "num_experiments": 8,
+  "total_suite_runtime_seconds": 282.41,
+  "baseline_config": {
+    "learning_rate": 0.0002,
+    "batch_size": 32,
+    "weight_decay": 0.0001,
+    "diffusion_timesteps": 500,
+    "random_seed": 42
+  },
+  "results_ranked_by_val_loss": [
+    {
+      "name": "lr_high",
+      "description": "Higher learning rate (0.0002 -> 6e-04)",
+      "varied": [
+        "learning_rate"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0006,
+        "batch_size": 32,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.796735,
+      "final_val_loss": 0.771549,
+      "best_val_loss": 0.7715489959716797,
+      "runtime_seconds": 32.23,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.982078,
+          "val_loss": 0.929828,
+          "best_val_loss": 0.929828,
+          "is_best": true,
+          "learning_rate": 0.0005494408836907636,
+          "elapsed_seconds": 10.16,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:05:16.237854+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.887168,
+          "val_loss": 0.818764,
+          "best_val_loss": 0.818764,
+          "is_best": true,
+          "learning_rate": 0.00021291459682366132,
+          "elapsed_seconds": 10.14,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:05:26.926617+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.796735,
+          "val_loss": 0.771549,
+          "best_val_loss": 0.771549,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.17,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:05:37.653463+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/lr_high/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/lr_high/checkpoint_latest.pt",
+      "rank_by_val_loss": 1
+    },
+    {
+      "name": "batch_small",
+      "description": "Smaller batch size (32 -> 16)",
+      "varied": [
+        "batch_size"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 16,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.814504,
+      "final_val_loss": 0.797909,
+      "best_val_loss": 0.7979092979431153,
+      "runtime_seconds": 34.7,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.976916,
+          "val_loss": 0.930262,
+          "best_val_loss": 0.930262,
+          "is_best": true,
+          "learning_rate": 0.00018660254037844388,
+          "elapsed_seconds": 10.97,
+          "global_step": 25,
+          "timestamp": "2026-08-22T09:05:49.476214+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.888504,
+          "val_loss": 0.832989,
+          "best_val_loss": 0.832989,
+          "is_best": true,
+          "learning_rate": 7.411809548974792e-05,
+          "elapsed_seconds": 10.88,
+          "global_step": 50,
+          "timestamp": "2026-08-22T09:06:00.995932+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.814504,
+          "val_loss": 0.797909,
+          "best_val_loss": 0.797909,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.9,
+          "global_step": 75,
+          "timestamp": "2026-08-22T09:06:12.505077+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_small/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_small/checkpoint_latest.pt",
+      "rank_by_val_loss": 2
+    },
+    {
+      "name": "weight_decay_high",
+      "description": "Stronger weight decay (0.0001 -> 1e-03)",
+      "varied": [
+        "weight_decay"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 32,
+        "weight_decay": 0.001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.914796,
+      "final_val_loss": 0.90732,
+      "best_val_loss": 0.9073196196556091,
+      "runtime_seconds": 37.41,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.992528,
+          "val_loss": 0.966668,
+          "best_val_loss": 0.966668,
+          "is_best": true,
+          "learning_rate": 0.00018314696123025454,
+          "elapsed_seconds": 10.4,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:07:31.617856+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.945975,
+          "val_loss": 0.918984,
+          "best_val_loss": 0.918984,
+          "is_best": true,
+          "learning_rate": 7.097153227455379e-05,
+          "elapsed_seconds": 10.44,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:07:42.598103+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.914796,
+          "val_loss": 0.90732,
+          "best_val_loss": 0.90732,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 14.63,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:07:57.966347+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/weight_decay_high/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/weight_decay_high/checkpoint_latest.pt",
+      "rank_by_val_loss": 3
+    },
+    {
+      "name": "weight_decay_zero",
+      "description": "No weight decay (0.0001 -> 0.0)",
+      "varied": [
+        "weight_decay"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 32,
+        "weight_decay": 0.0,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.914796,
+      "final_val_loss": 0.90732,
+      "best_val_loss": 0.9073199391365051,
+      "runtime_seconds": 34.02,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.992528,
+          "val_loss": 0.966668,
+          "best_val_loss": 0.966668,
+          "is_best": true,
+          "learning_rate": 0.00018314696123025454,
+          "elapsed_seconds": 10.52,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:06:58.223220+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.945975,
+          "val_loss": 0.918984,
+          "best_val_loss": 0.918984,
+          "is_best": true,
+          "learning_rate": 7.097153227455379e-05,
+          "elapsed_seconds": 10.54,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:07:09.390835+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.914796,
+          "val_loss": 0.90732,
+          "best_val_loss": 0.90732,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.47,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:07:20.387558+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/weight_decay_zero/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/weight_decay_zero/checkpoint_latest.pt",
+      "rank_by_val_loss": 4
+    },
+    {
+      "name": "baseline",
+      "description": "Step 6 defaults, unmodified (lr=0.0002, batch=32, weight_decay=0.0001, diffusion_timesteps=500)",
+      "varied": [],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 32,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.914796,
+      "final_val_loss": 0.90732,
+      "best_val_loss": 0.9073199605941773,
+      "runtime_seconds": 32.4,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.992528,
+          "val_loss": 0.966668,
+          "best_val_loss": 0.966668,
+          "is_best": true,
+          "learning_rate": 0.00018314696123025454,
+          "elapsed_seconds": 10.58,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:04:11.763242+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.945975,
+          "val_loss": 0.918984,
+          "best_val_loss": 0.918984,
+          "is_best": true,
+          "learning_rate": 7.097153227455379e-05,
+          "elapsed_seconds": 10.15,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:04:22.441755+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.914796,
+          "val_loss": 0.90732,
+          "best_val_loss": 0.90732,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.07,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:04:32.984730+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/baseline/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/baseline/checkpoint_latest.pt",
+      "rank_by_val_loss": 5
+    },
+    {
+      "name": "diffusion_short",
+      "description": "Shorter/coarser diffusion schedule (500 -> 100 timesteps)",
+      "varied": [
+        "diffusion_timesteps"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 32,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 100,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.934504,
+      "final_val_loss": 0.9283,
+      "best_val_loss": 0.9283003449440003,
+      "runtime_seconds": 44.15,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.994777,
+          "val_loss": 0.976335,
+          "best_val_loss": 0.976335,
+          "is_best": true,
+          "learning_rate": 0.00018314696123025454,
+          "elapsed_seconds": 14.86,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:08:13.846690+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.958761,
+          "val_loss": 0.938633,
+          "best_val_loss": 0.938633,
+          "is_best": true,
+          "learning_rate": 7.097153227455379e-05,
+          "elapsed_seconds": 14.72,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:08:29.363724+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.934504,
+          "val_loss": 0.9283,
+          "best_val_loss": 0.9283,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 12.39,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:08:42.306258+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/diffusion_short/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/diffusion_short/checkpoint_latest.pt",
+      "rank_by_val_loss": 6
+    },
+    {
+      "name": "batch_large",
+      "description": "Larger batch size (32 -> 64)",
+      "varied": [
+        "batch_size"
+      ],
+      "hyperparameters": {
+        "learning_rate": 0.0002,
+        "batch_size": 64,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.959328,
+      "final_val_loss": 0.956986,
+      "best_val_loss": 0.956986129283905,
+      "runtime_seconds": 33.53,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.998579,
+          "val_loss": 0.987769,
+          "best_val_loss": 0.987769,
+          "is_best": true,
+          "learning_rate": 0.00018502171357296144,
+          "elapsed_seconds": 10.36,
+          "global_step": 7,
+          "timestamp": "2026-08-22T09:06:24.046454+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.978518,
+          "val_loss": 0.963879,
+          "best_val_loss": 0.963879,
+          "is_best": true,
+          "learning_rate": 7.263370099279172e-05,
+          "elapsed_seconds": 10.11,
+          "global_step": 14,
+          "timestamp": "2026-08-22T09:06:34.976560+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.959328,
+          "val_loss": 0.956986,
+          "best_val_loss": 0.956986,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.28,
+          "global_step": 21,
+          "timestamp": "2026-08-22T09:06:46.191754+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_large/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_large/checkpoint_latest.pt",
+      "rank_by_val_loss": 7
+    },
+    {
+      "name": "lr_low",
+      "description": "Lower learning rate (0.0002 -> 5e-05)",
+      "varied": [
+        "learning_rate"
+      ],
+      "hyperparameters": {
+        "learning_rate": 5e-05,
+        "batch_size": 32,
+        "weight_decay": 0.0001,
+        "gradient_clip_val": 1.0,
+        "diffusion_timesteps": 500,
+        "epochs": 3,
+        "random_seed": 42
+      },
+      "train_samples": 399,
+      "val_samples": 50,
+      "test_split_used": false,
+      "final_train_loss": 0.980096,
+      "final_val_loss": 0.979753,
+      "best_val_loss": 0.9797529697418212,
+      "runtime_seconds": 32.13,
+      "per_epoch_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.999057,
+          "val_loss": 0.995769,
+          "best_val_loss": 0.995769,
+          "is_best": true,
+          "learning_rate": 4.5786740307563636e-05,
+          "elapsed_seconds": 10.13,
+          "global_step": 13,
+          "timestamp": "2026-08-22T09:04:43.913470+00:00"
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.989719,
+          "val_loss": 0.983118,
+          "best_val_loss": 0.983118,
+          "is_best": true,
+          "learning_rate": 1.7742883068638447e-05,
+          "elapsed_seconds": 10.16,
+          "global_step": 26,
+          "timestamp": "2026-08-22T09:04:54.589905+00:00"
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.980096,
+          "val_loss": 0.979753,
+          "best_val_loss": 0.979753,
+          "is_best": true,
+          "learning_rate": 0.0,
+          "elapsed_seconds": 10.15,
+          "global_step": 39,
+          "timestamp": "2026-08-22T09:05:05.273612+00:00"
+        }
+      ],
+      "checkpoint_best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/lr_low/checkpoint_best.pt",
+      "checkpoint_latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/lr_low/checkpoint_latest.pt",
+      "rank_by_val_loss": 8
+    }
+  ],
+  "winner": {
+    "name": "lr_high",
+    "description": "Higher learning rate (0.0002 -> 6e-04)",
+    "varied": [
+      "learning_rate"
+    ],
+    "hyperparameters": {
+      "learning_rate": 0.0006,
+      "batch_size": 32,
+      "weight_decay": 0.0001,
+      "gradient_clip_val": 1.0,
+      "diffusion_timesteps": 500,
+      "epochs": 3,
+      "random_seed": 42
+    },
+    "best_val_loss": 0.7715489959716797,
+    "saved_checkpoint": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/best_experiment_checkpoint.pt",
+    "saved_config": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/best_experiment_config.json"
+  },
+  "notes": "Step 7 tuning only -- every experiment trained on the TRAIN split, selected by VALIDATION loss, and never touched the TEST split. The dataset (Steps 2-4) and model architecture (Step 5) were not modified by this step; only training/schedule hyperparameters were varied. No pretrained weights were used -- every experiment started from a fresh, randomly initialized model. Step 8 (final test-set evaluation) and Step 9 (optimization) have not been run."
+}

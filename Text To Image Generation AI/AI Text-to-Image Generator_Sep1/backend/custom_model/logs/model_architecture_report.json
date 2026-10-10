@@ -1,0 +1,158 @@
+{
+  "step": "Step 5: Model Architecture",
+  "trained": false,
+  "vocab_size_used": 53,
+  "vocab_size_source": "data/processed/vocab.json",
+  "architecture_config": {
+    "text_embed_dim": 128,
+    "num_text_layers": 2,
+    "unet_base_channels": 64,
+    "channel_multipliers": [
+      1,
+      2,
+      4
+    ],
+    "num_res_blocks_per_stage": 2,
+    "time_embed_dim": 128,
+    "dropout": 0.1
+  },
+  "parameters": {
+    "total": 11974723,
+    "trainable": 11974723,
+    "target_ceiling_millions": 25.0,
+    "within_budget": true,
+    "by_component": {
+      "text_encoder": 275840,
+      "time_embedding": 131712,
+      "conditioning_projection": 65792,
+      "conditional_unet": 11501379
+    }
+  },
+  "shape_trace": {
+    "input_images": [
+      4,
+      3,
+      64,
+      64
+    ],
+    "input_timesteps": [
+      4
+    ],
+    "input_token_ids": [
+      4,
+      32
+    ],
+    "text_embedding": [
+      4,
+      128
+    ],
+    "time_embedding": [
+      4,
+      128
+    ],
+    "conditioning_vector": [
+      4,
+      256
+    ],
+    "predicted_noise_output": [
+      4,
+      3,
+      64,
+      64
+    ],
+    "output_dtype": "torch.float32"
+  },
+  "split_compatibility": {
+    "train": {
+      "ok": true,
+      "batch_size": 8,
+      "sample_ids": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "input_image_shape": [
+        8,
+        3,
+        64,
+        64
+      ],
+      "output_shape": [
+        8,
+        3,
+        64,
+        64
+      ]
+    },
+    "val": {
+      "ok": true,
+      "batch_size": 8,
+      "sample_ids": [
+        16,
+        35,
+        44,
+        63,
+        79,
+        108,
+        111,
+        116
+      ],
+      "input_image_shape": [
+        8,
+        3,
+        64,
+        64
+      ],
+      "output_shape": [
+        8,
+        3,
+        64,
+        64
+      ]
+    },
+    "test": {
+      "ok": true,
+      "batch_size": 8,
+      "sample_ids": [
+        3,
+        15,
+        23,
+        49,
+        52,
+        57,
+        73,
+        81
+      ],
+      "input_image_shape": [
+        8,
+        3,
+        64,
+        64
+      ],
+      "output_shape": [
+        8,
+        3,
+        64,
+        64
+      ]
+    }
+  },
+  "generation_demo": {
+    "output_shape": [
+      1,
+      3,
+      64,
+      64
+    ],
+    "output_dtype": "torch.float32",
+    "value_min": -1.0,
+    "value_max": 1.0,
+    "num_sampling_steps": 20
+  },
+  "notes": "Step 5 architecture only -- no training, no saved weights/checkpoints. Model was NOT initialized from any pretrained checkpoint."
+}

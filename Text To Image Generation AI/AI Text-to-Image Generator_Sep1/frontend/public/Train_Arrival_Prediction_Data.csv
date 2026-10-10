@@ -1,0 +1,48 @@
+Category,Field,Value,Unit/Details,Notes
+Hero Telemetry,Train Number,12951,,Mumbai Rajdhani Express
+Hero Telemetry,Train Name,Mumbai Rajdhani Express,,
+Hero Telemetry,Origin,Mumbai Central,,
+Hero Telemetry,Destination,New Delhi,,
+Hero Telemetry,Assigned Platform,4,,Platform 4 at Mumbai Central
+Hero Telemetry,Scheduled Arrival,06:30 PM,,Official timetable
+Hero Telemetry,Predicted Arrival,06:42 PM,,AI estimated arrival
+Hero Telemetry,Expected Delay,12,minutes,Delayed
+Hero Telemetry,Current Speed,68,km/h,Real-time telematics
+Hero Telemetry,Current Location,42,km from station,Sector beacon 14
+Hero Telemetry,Distance Remaining,42,km,
+Hero Telemetry,Model Confidence,94,%,Neural confidence score
+Hero Telemetry,Status,Approaching,,Signal status
+Hero Telemetry,Local Temperature,29,°C,Mumbai Central
+
+Journey Progress,Origin Node,Mumbai Central,,Start of monitored corridor
+Journey Progress,Current Beacon,42 km away,,Live GPS track beacon
+Journey Progress,Active Station Node,Platform 4 (Mumbai Central),,Scheduled station stop
+Journey Progress,Final Destination,New Delhi,,Terminating station
+Journey Progress,Track Completion,68,%,Monitored sector completion
+
+Prediction Factor,Current Speed,68,km/h,Velocity over track block
+Prediction Factor,Previous Delay,+8,minutes,Signal hold near Surat
+Prediction Factor,Route Pattern,+3,minutes,Track 4 switching congestion
+Prediction Factor,Station Traffic,Moderate,,Platform occupancy density
+Prediction Factor,Historical Pattern,Normal,,Corridor variance baseline
+Prediction Factor,Explainability Summary,"Delay accumulated from previous signal hold near Surat (+8m) and route switching (+3m), offset by recovery speed.",,AI reasoning text
+
+Station Board,12951,Mumbai Rajdhani Express,New Delhi,Platform 4,06:30 PM,06:42 PM,12 min (Delayed)
+Station Board,12109,Panchavati Superfast,Mumbai,Platform 2,06:48 PM,06:47 PM,0 min (On Time)
+Station Board,12267,Ahmedabad AC Duronto,Ahmedabad,Platform 6,07:05 PM,07:08 PM,3 min (Delayed)
+Station Board,12618,Mangala Superfast,Chennai,Platform 3,07:15 PM,07:14 PM,0 min (On Time)
+Station Board,12921,Flying Ranee Express,Jaipur,Platform 5,07:30 PM,07:35 PM,5 min (Delayed)
+
+Delay Trend 24h,00:00,4,minutes,Night baseline
+Delay Trend 24h,02:00,3,minutes,Low traffic
+Delay Trend 24h,04:00,8,minutes,Early freight traffic
+Delay Trend 24h,06:00,6,minutes,Morning opening
+Delay Trend 24h,08:00,14,minutes,Morning peak
+Delay Trend 24h,10:00,10,minutes,Midday regular
+Delay Trend 24h,12:00,18,minutes,Afternoon density
+Delay Trend 24h,14:00,24,minutes,Peak transit hours
+Delay Trend 24h,16:00,26,minutes,Daily maximum peak
+Delay Trend 24h,18:00,16,minutes,Evening recovery
+Delay Trend 24h,20:00,8,minutes,Evening reduction
+Delay Trend 24h,22:00,9,minutes,Night transition
+Delay Trend 24h,24:00,4,minutes,Night baseline

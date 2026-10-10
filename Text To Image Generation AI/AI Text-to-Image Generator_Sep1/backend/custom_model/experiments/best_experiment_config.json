@@ -1,0 +1,18 @@
+{
+  "name": "lr_high",
+  "description": "Higher learning rate (0.0002 -> 6e-04)",
+  "varied": [
+    "learning_rate"
+  ],
+  "hyperparameters": {
+    "learning_rate": 0.0006,
+    "batch_size": 32,
+    "weight_decay": 0.0001,
+    "gradient_clip_val": 1.0,
+    "diffusion_timesteps": 500,
+    "epochs": 3,
+    "random_seed": 42
+  },
+  "best_val_loss": 0.7715489959716797,
+  "source_checkpoint": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/lr_high/checkpoint_best.pt"
+}

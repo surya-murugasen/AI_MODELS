@@ -1,0 +1,997 @@
+{
+  "step": "Step 8: Model Evaluation",
+  "completed_at": "2026-08-22T09:30:43.338677+00:00",
+  "device": "mps",
+  "checkpoint": {
+    "source": "Step 7 best experiment",
+    "experiment_name": "lr_high",
+    "experiment_description": "Higher learning rate (0.0002 -> 6e-04)",
+    "checkpoint_path": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/best_experiment_checkpoint.pt",
+    "hyperparameters": {
+      "learning_rate": 0.0006,
+      "batch_size": 32,
+      "weight_decay": 0.0001,
+      "gradient_clip_val": 1.0,
+      "diffusion_timesteps": 500,
+      "epochs": 3,
+      "random_seed": 42
+    },
+    "step7_best_val_loss": 0.7715489959716797
+  },
+  "test_set": {
+    "test_metadata_path": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/splits/test_metadata.jsonl",
+    "num_test_samples": 50,
+    "note": "First and only use of the test split anywhere in this pipeline -- never used in Steps 6-7."
+  },
+  "metrics": {
+    "matched_validation_protocol": {
+      "mse": 0.7599588584899902,
+      "mae": 0.6953975868225097,
+      "n_samples": 50
+    },
+    "comparison_to_step7_validation": {
+      "step7_best_val_loss": 0.7715489959716797,
+      "test_mse_matched_protocol": 0.7599588584899902,
+      "gap_test_minus_val": -0.011590137481689466,
+      "note": "Both numbers use the identical single-random-timestep-per-sample protocol (Trainer.validate()'s methodology), so this gap isolates the validation-set-to-test-set generalization difference, not a difference in how the metric itself was computed."
+    },
+    "multi_timestep_evaluation": {
+      "num_test_samples": 50,
+      "timesteps_evaluated": [
+        0,
+        55,
+        111,
+        166,
+        222,
+        277,
+        333,
+        388,
+        444,
+        499
+      ],
+      "overall_mean_mse": 0.7877911579608916,
+      "mse_by_timestep": {
+        "0": 1.022432862520218,
+        "55": 0.833746395111084,
+        "111": 0.7816305458545685,
+        "166": 0.760290094614029,
+        "222": 0.7540812790393829,
+        "277": 0.7475067448616027,
+        "333": 0.7457690870761872,
+        "388": 0.7441921889781952,
+        "444": 0.742949686050415,
+        "499": 0.7453126955032349
+      },
+      "mse_early_diffusion_avg": 0.8792699344952902,
+      "mse_mid_diffusion_avg": 0.7519118013978004,
+      "mse_late_diffusion_avg": 0.744151523510615
+    }
+  },
+  "per_sample_test_predictions": [
+    {
+      "id": 3,
+      "prompt": "a emerald triangle on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.783941525220871,
+      "per_timestep_mse": {
+        "0": 1.0272198915481567,
+        "55": 0.8261105418205261,
+        "111": 0.7731282114982605,
+        "166": 0.7454956769943237,
+        "222": 0.7503412961959839,
+        "277": 0.7543317675590515,
+        "333": 0.7349163293838501,
+        "388": 0.7439899444580078,
+        "444": 0.7571513056755066,
+        "499": 0.7267302870750427
+      }
+    },
+    {
+      "id": 15,
+      "prompt": "a silver circle on a dark background",
+      "mean_mse_across_timesteps": 0.7900300621986389,
+      "per_timestep_mse": {
+        "0": 1.0284086465835571,
+        "55": 0.8575600385665894,
+        "111": 0.7864859104156494,
+        "166": 0.7863583564758301,
+        "222": 0.7476809024810791,
+        "277": 0.743977427482605,
+        "333": 0.753427267074585,
+        "388": 0.7499967813491821,
+        "444": 0.7093271017074585,
+        "499": 0.7370781898498535
+      }
+    },
+    {
+      "id": 23,
+      "prompt": "a turquoise diamond on a starry night",
+      "mean_mse_across_timesteps": 0.7824360072612763,
+      "per_timestep_mse": {
+        "0": 1.0073580741882324,
+        "55": 0.8224326968193054,
+        "111": 0.7689650058746338,
+        "166": 0.7639791369438171,
+        "222": 0.7461971044540405,
+        "277": 0.7460935115814209,
+        "333": 0.7508968114852905,
+        "388": 0.7401863932609558,
+        "444": 0.7438492774963379,
+        "499": 0.734402060508728
+      }
+    },
+    {
+      "id": 49,
+      "prompt": "a orange circle on a white background",
+      "mean_mse_across_timesteps": 0.7918169677257538,
+      "per_timestep_mse": {
+        "0": 1.0451408624649048,
+        "55": 0.8698744773864746,
+        "111": 0.7990221977233887,
+        "166": 0.7552179098129272,
+        "222": 0.7751044631004333,
+        "277": 0.7523554563522339,
+        "333": 0.7150799036026001,
+        "388": 0.7442187070846558,
+        "444": 0.7378053665161133,
+        "499": 0.7243503332138062
+      }
+    },
+    {
+      "id": 52,
+      "prompt": "a radiant star in orange on a deep sky",
+      "mean_mse_across_timesteps": 0.7927224636077881,
+      "per_timestep_mse": {
+        "0": 1.0530378818511963,
+        "55": 0.8673264384269714,
+        "111": 0.7744285464286804,
+        "166": 0.7505388259887695,
+        "222": 0.7821627855300903,
+        "277": 0.7304577827453613,
+        "333": 0.7309281229972839,
+        "388": 0.7428851127624512,
+        "444": 0.7506097555160522,
+        "499": 0.7448493838310242
+      }
+    },
+    {
+      "id": 57,
+      "prompt": "a neon crimson diamond on a soft gradient",
+      "mean_mse_across_timesteps": 0.7821673274040222,
+      "per_timestep_mse": {
+        "0": 1.0137968063354492,
+        "55": 0.8274524211883545,
+        "111": 0.7795224189758301,
+        "166": 0.7416538000106812,
+        "222": 0.7535537481307983,
+        "277": 0.730971097946167,
+        "333": 0.7542001008987427,
+        "388": 0.7552110552787781,
+        "444": 0.7257333993911743,
+        "499": 0.7395784258842468
+      }
+    },
+    {
+      "id": 73,
+      "prompt": "a neon triangle in pink on a deep sky",
+      "mean_mse_across_timesteps": 0.7884555160999298,
+      "per_timestep_mse": {
+        "0": 1.028968334197998,
+        "55": 0.8470369577407837,
+        "111": 0.8023607134819031,
+        "166": 0.7620446681976318,
+        "222": 0.7556831240653992,
+        "277": 0.730118453502655,
+        "333": 0.7436493635177612,
+        "388": 0.7371879816055298,
+        "444": 0.7360637187957764,
+        "499": 0.7414418458938599
+      }
+    },
+    {
+      "id": 81,
+      "prompt": "a bold magenta circle on a deep sky",
+      "mean_mse_across_timesteps": 0.7926180422306061,
+      "per_timestep_mse": {
+        "0": 1.0364540815353394,
+        "55": 0.8380507826805115,
+        "111": 0.8071350455284119,
+        "166": 0.772251307964325,
+        "222": 0.7587006092071533,
+        "277": 0.7413716316223145,
+        "333": 0.7466885447502136,
+        "388": 0.7463836073875427,
+        "444": 0.7422506809234619,
+        "499": 0.7368941307067871
+      }
+    },
+    {
+      "id": 98,
+      "prompt": "a minimalist cross in yellow on a dark background",
+      "mean_mse_across_timesteps": 0.7879016399383545,
+      "per_timestep_mse": {
+        "0": 1.034903645515442,
+        "55": 0.8595318794250488,
+        "111": 0.7913899421691895,
+        "166": 0.7487601041793823,
+        "222": 0.7428745031356812,
+        "277": 0.7326216697692871,
+        "333": 0.7449460029602051,
+        "388": 0.7410235404968262,
+        "444": 0.7373615503311157,
+        "499": 0.7456035614013672
+      }
+    },
+    {
+      "id": 101,
+      "prompt": "a blue square on a dark background",
+      "mean_mse_across_timesteps": 0.7892853796482087,
+      "per_timestep_mse": {
+        "0": 1.0240554809570312,
+        "55": 0.839225172996521,
+        "111": 0.7986084818840027,
+        "166": 0.7601412534713745,
+        "222": 0.754392147064209,
+        "277": 0.7333345413208008,
+        "333": 0.7443078756332397,
+        "388": 0.7371352910995483,
+        "444": 0.7622451782226562,
+        "499": 0.7394083738327026
+      }
+    },
+    {
+      "id": 110,
+      "prompt": "a vibrant crimson cross on a white background",
+      "mean_mse_across_timesteps": 0.8025157451629639,
+      "per_timestep_mse": {
+        "0": 1.06218421459198,
+        "55": 0.8755772113800049,
+        "111": 0.8254146575927734,
+        "166": 0.7662711143493652,
+        "222": 0.779784619808197,
+        "277": 0.764470100402832,
+        "333": 0.745557427406311,
+        "388": 0.7394260764122009,
+        "444": 0.7378398776054382,
+        "499": 0.7286321520805359
+      }
+    },
+    {
+      "id": 112,
+      "prompt": "a crimson square on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.7872156023979187,
+      "per_timestep_mse": {
+        "0": 1.0450090169906616,
+        "55": 0.8371649980545044,
+        "111": 0.7751706838607788,
+        "166": 0.7628775835037231,
+        "222": 0.7407102584838867,
+        "277": 0.7572836875915527,
+        "333": 0.7385403513908386,
+        "388": 0.7588003873825073,
+        "444": 0.7220531702041626,
+        "499": 0.734545886516571
+      }
+    },
+    {
+      "id": 114,
+      "prompt": "a muted emerald diamond on a soft gradient",
+      "mean_mse_across_timesteps": 0.7744469583034516,
+      "per_timestep_mse": {
+        "0": 0.969130277633667,
+        "55": 0.7941667437553406,
+        "111": 0.7540985941886902,
+        "166": 0.7626804709434509,
+        "222": 0.7475675344467163,
+        "277": 0.7501535415649414,
+        "333": 0.7299851179122925,
+        "388": 0.7549699544906616,
+        "444": 0.7370771169662476,
+        "499": 0.7446402311325073
+      }
+    },
+    {
+      "id": 119,
+      "prompt": "a pink star on a white background",
+      "mean_mse_across_timesteps": 0.7817005276679992,
+      "per_timestep_mse": {
+        "0": 1.024310827255249,
+        "55": 0.8069853782653809,
+        "111": 0.7756211161613464,
+        "166": 0.7501869201660156,
+        "222": 0.7540743350982666,
+        "277": 0.7445694208145142,
+        "333": 0.7495488524436951,
+        "388": 0.7486834526062012,
+        "444": 0.7468177676200867,
+        "499": 0.7162072062492371
+      }
+    },
+    {
+      "id": 126,
+      "prompt": "a muted hexagon in yellow on a pastel background",
+      "mean_mse_across_timesteps": 0.7897343099117279,
+      "per_timestep_mse": {
+        "0": 1.0132073163986206,
+        "55": 0.8601650595664978,
+        "111": 0.7771205902099609,
+        "166": 0.7773227691650391,
+        "222": 0.7488217353820801,
+        "277": 0.7529832124710083,
+        "333": 0.7534207701683044,
+        "388": 0.7336990237236023,
+        "444": 0.722528338432312,
+        "499": 0.7580742835998535
+      }
+    },
+    {
+      "id": 134,
+      "prompt": "a blue circle on a soft gradient",
+      "mean_mse_across_timesteps": 0.7910560429096222,
+      "per_timestep_mse": {
+        "0": 1.028348445892334,
+        "55": 0.8511914014816284,
+        "111": 0.8022292852401733,
+        "166": 0.769736647605896,
+        "222": 0.7528114318847656,
+        "277": 0.7373449802398682,
+        "333": 0.7444133162498474,
+        "388": 0.7411649227142334,
+        "444": 0.7381207942962646,
+        "499": 0.7451992034912109
+      }
+    },
+    {
+      "id": 136,
+      "prompt": "a violet circle on a soft gradient",
+      "mean_mse_across_timesteps": 0.7839475989341735,
+      "per_timestep_mse": {
+        "0": 1.0209014415740967,
+        "55": 0.8209627866744995,
+        "111": 0.7651602625846863,
+        "166": 0.7601336240768433,
+        "222": 0.7484971880912781,
+        "277": 0.7357813715934753,
+        "333": 0.7377273440361023,
+        "388": 0.7385537028312683,
+        "444": 0.7518667578697205,
+        "499": 0.7598915100097656
+      }
+    },
+    {
+      "id": 137,
+      "prompt": "a pink cross on a deep sky",
+      "mean_mse_across_timesteps": 0.8033660590648651,
+      "per_timestep_mse": {
+        "0": 1.05531644821167,
+        "55": 0.8598472476005554,
+        "111": 0.8069040179252625,
+        "166": 0.7903809547424316,
+        "222": 0.7502161860466003,
+        "277": 0.7602862119674683,
+        "333": 0.7610504031181335,
+        "388": 0.7378618121147156,
+        "444": 0.7492471933364868,
+        "499": 0.7625501155853271
+      }
+    },
+    {
+      "id": 142,
+      "prompt": "a red triangle on a soft gradient",
+      "mean_mse_across_timesteps": 0.7861998081207275,
+      "per_timestep_mse": {
+        "0": 1.0196641683578491,
+        "55": 0.8103157877922058,
+        "111": 0.7717911601066589,
+        "166": 0.7562448382377625,
+        "222": 0.7605295181274414,
+        "277": 0.7719553709030151,
+        "333": 0.7439824938774109,
+        "388": 0.7213794589042664,
+        "444": 0.7536527514457703,
+        "499": 0.752482533454895
+      }
+    },
+    {
+      "id": 150,
+      "prompt": "a turquoise triangle on a deep sky",
+      "mean_mse_across_timesteps": 0.7790415644645691,
+      "per_timestep_mse": {
+        "0": 1.0066611766815186,
+        "55": 0.8027228116989136,
+        "111": 0.7761554718017578,
+        "166": 0.74785315990448,
+        "222": 0.7461387515068054,
+        "277": 0.7452750205993652,
+        "333": 0.743558406829834,
+        "388": 0.7418398857116699,
+        "444": 0.7434698939323425,
+        "499": 0.7367410659790039
+      }
+    },
+    {
+      "id": 166,
+      "prompt": "a radiant triangle in pink on a dark background",
+      "mean_mse_across_timesteps": 0.7936793506145478,
+      "per_timestep_mse": {
+        "0": 1.0231010913848877,
+        "55": 0.8449258208274841,
+        "111": 0.7919919490814209,
+        "166": 0.760535478591919,
+        "222": 0.7689627408981323,
+        "277": 0.7530345916748047,
+        "333": 0.7447400093078613,
+        "388": 0.7593042254447937,
+        "444": 0.7442423701286316,
+        "499": 0.745955228805542
+      }
+    },
+    {
+      "id": 174,
+      "prompt": "a bright cross in pink on a white background",
+      "mean_mse_across_timesteps": 0.7858467280864716,
+      "per_timestep_mse": {
+        "0": 1.016694188117981,
+        "55": 0.8342493772506714,
+        "111": 0.7695838212966919,
+        "166": 0.7638158202171326,
+        "222": 0.7387180328369141,
+        "277": 0.7480286955833435,
+        "333": 0.7493656873703003,
+        "388": 0.7497865557670593,
+        "444": 0.7412407398223877,
+        "499": 0.7469843626022339
+      }
+    },
+    {
+      "id": 176,
+      "prompt": "a muted orange triangle on a deep sky",
+      "mean_mse_across_timesteps": 0.7914951503276825,
+      "per_timestep_mse": {
+        "0": 1.036895990371704,
+        "55": 0.8549391627311707,
+        "111": 0.7622506022453308,
+        "166": 0.7624582052230835,
+        "222": 0.7492766380310059,
+        "277": 0.7450911402702332,
+        "333": 0.7526299357414246,
+        "388": 0.7484938502311707,
+        "444": 0.739118218421936,
+        "499": 0.7637977600097656
+      }
+    },
+    {
+      "id": 181,
+      "prompt": "a vibrant triangle in silver on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.7763474225997925,
+      "per_timestep_mse": {
+        "0": 0.9814677238464355,
+        "55": 0.8038546442985535,
+        "111": 0.7522357702255249,
+        "166": 0.7617198824882507,
+        "222": 0.754619300365448,
+        "277": 0.7423965334892273,
+        "333": 0.7555989027023315,
+        "388": 0.7368685007095337,
+        "444": 0.7362555861473083,
+        "499": 0.7384573817253113
+      }
+    },
+    {
+      "id": 186,
+      "prompt": "a cyan cross on a soft gradient",
+      "mean_mse_across_timesteps": 0.7810370028018951,
+      "per_timestep_mse": {
+        "0": 1.0032657384872437,
+        "55": 0.8239655494689941,
+        "111": 0.7978255152702332,
+        "166": 0.7604550123214722,
+        "222": 0.7541666030883789,
+        "277": 0.7311872243881226,
+        "333": 0.7282232642173767,
+        "388": 0.7326988577842712,
+        "444": 0.7414721250534058,
+        "499": 0.7371101379394531
+      }
+    },
+    {
+      "id": 193,
+      "prompt": "a vibrant blue triangle on a soft gradient",
+      "mean_mse_across_timesteps": 0.7871799409389496,
+      "per_timestep_mse": {
+        "0": 1.0215061902999878,
+        "55": 0.8114005923271179,
+        "111": 0.7939351797103882,
+        "166": 0.7395972013473511,
+        "222": 0.7445691823959351,
+        "277": 0.7466602325439453,
+        "333": 0.7703887820243835,
+        "388": 0.7491177320480347,
+        "444": 0.7409453392028809,
+        "499": 0.7536789774894714
+      }
+    },
+    {
+      "id": 202,
+      "prompt": "a glowing cross in emerald on a black canvas",
+      "mean_mse_across_timesteps": 0.7843893110752106,
+      "per_timestep_mse": {
+        "0": 0.9953457713127136,
+        "55": 0.8211631774902344,
+        "111": 0.7662062644958496,
+        "166": 0.7655662894248962,
+        "222": 0.7372231483459473,
+        "277": 0.7531217336654663,
+        "333": 0.7609834671020508,
+        "388": 0.7457472681999207,
+        "444": 0.7541296482086182,
+        "499": 0.7444063425064087
+      }
+    },
+    {
+      "id": 235,
+      "prompt": "a electric orange circle on a soft gradient",
+      "mean_mse_across_timesteps": 0.7900955319404602,
+      "per_timestep_mse": {
+        "0": 1.0404975414276123,
+        "55": 0.8333587646484375,
+        "111": 0.7803418040275574,
+        "166": 0.757184624671936,
+        "222": 0.7646583318710327,
+        "277": 0.7571088075637817,
+        "333": 0.7472567558288574,
+        "388": 0.7477943301200867,
+        "444": 0.733758807182312,
+        "499": 0.7389955520629883
+      }
+    },
+    {
+      "id": 236,
+      "prompt": "a indigo triangle on a starry night",
+      "mean_mse_across_timesteps": 0.7843367636203766,
+      "per_timestep_mse": {
+        "0": 0.9978295564651489,
+        "55": 0.8270964026451111,
+        "111": 0.77532958984375,
+        "166": 0.7388619184494019,
+        "222": 0.7629899978637695,
+        "277": 0.7566790580749512,
+        "333": 0.7567266225814819,
+        "388": 0.7344011664390564,
+        "444": 0.734205424785614,
+        "499": 0.759247899055481
+      }
+    },
+    {
+      "id": 257,
+      "prompt": "a neon triangle in pink on a dark background",
+      "mean_mse_across_timesteps": 0.7952128767967224,
+      "per_timestep_mse": {
+        "0": 1.0477900505065918,
+        "55": 0.8462667465209961,
+        "111": 0.8047663569450378,
+        "166": 0.7707552909851074,
+        "222": 0.7577492594718933,
+        "277": 0.7454133033752441,
+        "333": 0.7409324049949646,
+        "388": 0.7562143206596375,
+        "444": 0.732646644115448,
+        "499": 0.7495943903923035
+      }
+    },
+    {
+      "id": 291,
+      "prompt": "a soft star in silver on a pastel background",
+      "mean_mse_across_timesteps": 0.7773192882537842,
+      "per_timestep_mse": {
+        "0": 0.9801129102706909,
+        "55": 0.7896407842636108,
+        "111": 0.7587985992431641,
+        "166": 0.7582106590270996,
+        "222": 0.7653297185897827,
+        "277": 0.7453354597091675,
+        "333": 0.7272151708602905,
+        "388": 0.7414302825927734,
+        "444": 0.7680827975273132,
+        "499": 0.739036500453949
+      }
+    },
+    {
+      "id": 299,
+      "prompt": "a vibrant star in turquoise on a white background",
+      "mean_mse_across_timesteps": 0.7956476628780365,
+      "per_timestep_mse": {
+        "0": 1.0197293758392334,
+        "55": 0.8423105478286743,
+        "111": 0.8010718822479248,
+        "166": 0.7628719210624695,
+        "222": 0.7803643941879272,
+        "277": 0.7619832754135132,
+        "333": 0.759480357170105,
+        "388": 0.7458431124687195,
+        "444": 0.7429343461990356,
+        "499": 0.7398874163627625
+      }
+    },
+    {
+      "id": 303,
+      "prompt": "a glowing cross in turquoise on a dark background",
+      "mean_mse_across_timesteps": 0.7863685488700867,
+      "per_timestep_mse": {
+        "0": 1.0217546224594116,
+        "55": 0.8316194415092468,
+        "111": 0.7861876487731934,
+        "166": 0.7446193695068359,
+        "222": 0.7569787502288818,
+        "277": 0.7506065368652344,
+        "333": 0.7408857345581055,
+        "388": 0.743796706199646,
+        "444": 0.7455641627311707,
+        "499": 0.7416725158691406
+      }
+    },
+    {
+      "id": 309,
+      "prompt": "a radiant cross in silver on a pastel background",
+      "mean_mse_across_timesteps": 0.7816146373748779,
+      "per_timestep_mse": {
+        "0": 1.0094692707061768,
+        "55": 0.8003742098808289,
+        "111": 0.7595903277397156,
+        "166": 0.7460622787475586,
+        "222": 0.7537631392478943,
+        "277": 0.7424094080924988,
+        "333": 0.7533010840415955,
+        "388": 0.7597798705101013,
+        "444": 0.7442220449447632,
+        "499": 0.7471747398376465
+      }
+    },
+    {
+      "id": 317,
+      "prompt": "a muted crimson circle on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.793652880191803,
+      "per_timestep_mse": {
+        "0": 1.044921875,
+        "55": 0.8286394476890564,
+        "111": 0.776728093624115,
+        "166": 0.7692704200744629,
+        "222": 0.7635983228683472,
+        "277": 0.7322297096252441,
+        "333": 0.7581855654716492,
+        "388": 0.7528965473175049,
+        "444": 0.7664768695831299,
+        "499": 0.7435819506645203
+      }
+    },
+    {
+      "id": 332,
+      "prompt": "a minimalist triangle in purple on a white background",
+      "mean_mse_across_timesteps": 0.791342306137085,
+      "per_timestep_mse": {
+        "0": 1.0000026226043701,
+        "55": 0.8555909991264343,
+        "111": 0.7735533118247986,
+        "166": 0.7665146589279175,
+        "222": 0.7636401057243347,
+        "277": 0.7477084994316101,
+        "333": 0.7483312487602234,
+        "388": 0.7572680711746216,
+        "444": 0.7414237856864929,
+        "499": 0.7593897581100464
+      }
+    },
+    {
+      "id": 356,
+      "prompt": "a vibrant diamond in emerald on a soft gradient",
+      "mean_mse_across_timesteps": 0.7813094258308411,
+      "per_timestep_mse": {
+        "0": 0.9960319399833679,
+        "55": 0.8117274045944214,
+        "111": 0.7596464157104492,
+        "166": 0.745525062084198,
+        "222": 0.7565517425537109,
+        "277": 0.7513126730918884,
+        "333": 0.7453212738037109,
+        "388": 0.7366525530815125,
+        "444": 0.760733962059021,
+        "499": 0.7495912313461304
+      }
+    },
+    {
+      "id": 361,
+      "prompt": "a radiant square in gold on a dark background",
+      "mean_mse_across_timesteps": 0.7959370911121368,
+      "per_timestep_mse": {
+        "0": 1.0635027885437012,
+        "55": 0.8578922152519226,
+        "111": 0.7934057116508484,
+        "166": 0.7779970169067383,
+        "222": 0.7500213384628296,
+        "277": 0.74266117811203,
+        "333": 0.7568939924240112,
+        "388": 0.7487176656723022,
+        "444": 0.7368700504302979,
+        "499": 0.731408953666687
+      }
+    },
+    {
+      "id": 373,
+      "prompt": "a vibrant gold cross on a soft gradient",
+      "mean_mse_across_timesteps": 0.7897898972034454,
+      "per_timestep_mse": {
+        "0": 1.0517252683639526,
+        "55": 0.8478792905807495,
+        "111": 0.7794189453125,
+        "166": 0.7744865417480469,
+        "222": 0.7472213506698608,
+        "277": 0.766754150390625,
+        "333": 0.7440279722213745,
+        "388": 0.7216756343841553,
+        "444": 0.7390598058700562,
+        "499": 0.7256500124931335
+      }
+    },
+    {
+      "id": 383,
+      "prompt": "a minimalist diamond in green on a white background",
+      "mean_mse_across_timesteps": 0.7904982268810272,
+      "per_timestep_mse": {
+        "0": 1.0302643775939941,
+        "55": 0.8486244082450867,
+        "111": 0.7818175554275513,
+        "166": 0.7609106302261353,
+        "222": 0.7505437135696411,
+        "277": 0.7535367012023926,
+        "333": 0.7483558058738708,
+        "388": 0.7378872632980347,
+        "444": 0.7408062815666199,
+        "499": 0.7522355318069458
+      }
+    },
+    {
+      "id": 397,
+      "prompt": "a gold diamond on a starry night",
+      "mean_mse_across_timesteps": 0.7882698714733124,
+      "per_timestep_mse": {
+        "0": 0.9965147972106934,
+        "55": 0.834968090057373,
+        "111": 0.8005870580673218,
+        "166": 0.7760908007621765,
+        "222": 0.7387949228286743,
+        "277": 0.7440850734710693,
+        "333": 0.7392183542251587,
+        "388": 0.7504581212997437,
+        "444": 0.7392343282699585,
+        "499": 0.7627471685409546
+      }
+    },
+    {
+      "id": 409,
+      "prompt": "a soft purple circle on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.7837436258792877,
+      "per_timestep_mse": {
+        "0": 1.0417674779891968,
+        "55": 0.7896763682365417,
+        "111": 0.7705215215682983,
+        "166": 0.7698806524276733,
+        "222": 0.7505679130554199,
+        "277": 0.7764682173728943,
+        "333": 0.7395024299621582,
+        "388": 0.736140251159668,
+        "444": 0.7431027293205261,
+        "499": 0.7198086977005005
+      }
+    },
+    {
+      "id": 416,
+      "prompt": "a violet circle on a deep sky",
+      "mean_mse_across_timesteps": 0.7841034352779388,
+      "per_timestep_mse": {
+        "0": 1.0264947414398193,
+        "55": 0.8303055763244629,
+        "111": 0.7913700938224792,
+        "166": 0.7422099113464355,
+        "222": 0.740060031414032,
+        "277": 0.7389565706253052,
+        "333": 0.7317280173301697,
+        "388": 0.7313529849052429,
+        "444": 0.741599977016449,
+        "499": 0.7669564485549927
+      }
+    },
+    {
+      "id": 442,
+      "prompt": "a vibrant star in orange on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.7948198318481445,
+      "per_timestep_mse": {
+        "0": 1.0336482524871826,
+        "55": 0.8514137268066406,
+        "111": 0.7846212387084961,
+        "166": 0.7655708193778992,
+        "222": 0.7661383152008057,
+        "277": 0.7556613683700562,
+        "333": 0.7358744144439697,
+        "388": 0.749786376953125,
+        "444": 0.7440544962882996,
+        "499": 0.7614293098449707
+      }
+    },
+    {
+      "id": 452,
+      "prompt": "a purple hexagon on a dark background",
+      "mean_mse_across_timesteps": 0.7832318484783173,
+      "per_timestep_mse": {
+        "0": 1.0193595886230469,
+        "55": 0.8234190940856934,
+        "111": 0.7601921558380127,
+        "166": 0.7443023920059204,
+        "222": 0.7404993772506714,
+        "277": 0.7320312857627869,
+        "333": 0.7372032403945923,
+        "388": 0.7437033653259277,
+        "444": 0.7532297372817993,
+        "499": 0.7783782482147217
+      }
+    },
+    {
+      "id": 459,
+      "prompt": "a turquoise hexagon on a pastel background",
+      "mean_mse_across_timesteps": 0.7911103129386902,
+      "per_timestep_mse": {
+        "0": 1.0177183151245117,
+        "55": 0.8331749439239502,
+        "111": 0.7818464040756226,
+        "166": 0.7758857607841492,
+        "222": 0.7613351345062256,
+        "277": 0.7431551814079285,
+        "333": 0.7525514364242554,
+        "388": 0.7510868310928345,
+        "444": 0.7495743632316589,
+        "499": 0.7447747588157654
+      }
+    },
+    {
+      "id": 477,
+      "prompt": "a minimalist star in violet on a dark background",
+      "mean_mse_across_timesteps": 0.788619989156723,
+      "per_timestep_mse": {
+        "0": 1.0148382186889648,
+        "55": 0.8376212120056152,
+        "111": 0.7854454517364502,
+        "166": 0.7670949697494507,
+        "222": 0.7551263570785522,
+        "277": 0.7376013994216919,
+        "333": 0.7504547834396362,
+        "388": 0.7547376155853271,
+        "444": 0.7453708648681641,
+        "499": 0.7379090189933777
+      }
+    },
+    {
+      "id": 481,
+      "prompt": "a electric hexagon in turquoise on a black canvas",
+      "mean_mse_across_timesteps": 0.7874988198280335,
+      "per_timestep_mse": {
+        "0": 0.9968559145927429,
+        "55": 0.8402694463729858,
+        "111": 0.7855933904647827,
+        "166": 0.7550143599510193,
+        "222": 0.7588492631912231,
+        "277": 0.7535369396209717,
+        "333": 0.746639609336853,
+        "388": 0.7336334586143494,
+        "444": 0.7491306066513062,
+        "499": 0.7554652094841003
+      }
+    },
+    {
+      "id": 490,
+      "prompt": "a vibrant square in purple on a deep sky",
+      "mean_mse_across_timesteps": 0.7920018911361695,
+      "per_timestep_mse": {
+        "0": 1.0370296239852905,
+        "55": 0.8392292261123657,
+        "111": 0.780936598777771,
+        "166": 0.7498353719711304,
+        "222": 0.7470366358757019,
+        "277": 0.7556931972503662,
+        "333": 0.7569839358329773,
+        "388": 0.7432756423950195,
+        "444": 0.7373689413070679,
+        "499": 0.7726297378540039
+      }
+    },
+    {
+      "id": 499,
+      "prompt": "a red triangle on a foggy backdrop",
+      "mean_mse_across_timesteps": 0.7824590802192688,
+      "per_timestep_mse": {
+        "0": 1.011430263519287,
+        "55": 0.8180222511291504,
+        "111": 0.765015721321106,
+        "166": 0.7510722875595093,
+        "222": 0.7288679480552673,
+        "277": 0.7491528391838074,
+        "333": 0.7426292896270752,
+        "388": 0.7544631958007812,
+        "444": 0.7555582523345947,
+        "499": 0.7483787536621094
+      }
+    }
+  ],
+  "qualitative_samples": [
+    {
+      "id": 3,
+      "prompt": "a emerald triangle on a foggy backdrop",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00003_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00003_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 15,
+      "prompt": "a silver circle on a dark background",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00015_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00015_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 23,
+      "prompt": "a turquoise diamond on a starry night",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00023_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00023_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 49,
+      "prompt": "a orange circle on a white background",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00049_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00049_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 52,
+      "prompt": "a radiant star in orange on a deep sky",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00052_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00052_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 57,
+      "prompt": "a neon crimson diamond on a soft gradient",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00057_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00057_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 73,
+      "prompt": "a neon triangle in pink on a deep sky",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00073_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00073_comparison_real_vs_generated.png"
+    },
+    {
+      "id": 81,
+      "prompt": "a bold magenta circle on a deep sky",
+      "generation_steps": 50,
+      "generated_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00081_generated.png",
+      "comparison_image_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/evaluation/samples/test_00081_comparison_real_vs_generated.png"
+    }
+  ],
+  "configuration": {
+    "eval_seed": 42,
+    "vocab_size": 53,
+    "diffusion_timesteps": 500,
+    "num_timesteps_evaluated_per_sample": 10,
+    "num_qualitative_samples": 8,
+    "generation_steps_for_qualitative_demo": 50
+  },
+  "guarantees": {
+    "test_set_used_for_training": false,
+    "test_set_used_for_hyperparameter_tuning_or_checkpoint_selection": false,
+    "model_weights_modified_during_evaluation": false,
+    "model_architecture_modified": false,
+    "dataset_or_test_samples_modified": false,
+    "pretrained_weights_used": false
+  },
+  "notes": "Step 8 evaluation only -- loaded Step 7's winning checkpoint read-only, evaluated it on the untouched test split, and generated qualitative samples. No gradients, optimizer steps, or weight updates occurred anywhere in this run. The model at this point has only had a handful of short (3-epoch) experiments run on it (Steps 6-7 were pipeline verification runs, not a full training run), so both the quantitative loss and the qualitative generated images are expected to reflect an undertrained model, not a finished one. Step 9 (optimization) has not been run."
+}

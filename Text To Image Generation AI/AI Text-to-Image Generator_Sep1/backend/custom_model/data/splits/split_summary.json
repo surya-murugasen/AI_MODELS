@@ -1,0 +1,53 @@
+{
+  "step": "Step 4: Dataset Splitting",
+  "completed_at": "2026-08-22T07:15:42.906203+00:00",
+  "source": {
+    "processed_metadata": "/sessions/rcw-014bygdyd1ojfnbays6cpgvu/mnt/AI Text-to-Image Generator/backend/custom_model/data/processed/processed_metadata.jsonl",
+    "total_valid_samples": 499
+  },
+  "config": {
+    "train_ratio": 0.8,
+    "val_ratio": 0.1,
+    "test_ratio": 0.1,
+    "random_seed": 42,
+    "prevent_image_content_leakage": true
+  },
+  "splits": {
+    "train": {
+      "count": 399,
+      "percent": 79.96,
+      "target_percent": 80.0,
+      "metadata_file": "/sessions/rcw-014bygdyd1ojfnbays6cpgvu/mnt/AI Text-to-Image Generator/backend/custom_model/data/splits/train_metadata.jsonl"
+    },
+    "val": {
+      "count": 50,
+      "percent": 10.02,
+      "target_percent": 10.0,
+      "metadata_file": "/sessions/rcw-014bygdyd1ojfnbays6cpgvu/mnt/AI Text-to-Image Generator/backend/custom_model/data/splits/val_metadata.jsonl"
+    },
+    "test": {
+      "count": 50,
+      "percent": 10.02,
+      "target_percent": 10.0,
+      "metadata_file": "/sessions/rcw-014bygdyd1ojfnbays6cpgvu/mnt/AI Text-to-Image Generator/backend/custom_model/data/splits/test_metadata.jsonl"
+    }
+  },
+  "leakage_prevention": {
+    "method": "group-by-exact-processed-image-pixel-hash",
+    "total_groups": 495,
+    "multi_sample_groups": 4,
+    "multi_sample_group_sizes": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "cross_split_overlap_ids": []
+  },
+  "checks": {
+    "sample_count_preserved": true,
+    "no_duplicate_ids_across_splits": true,
+    "no_split_overlap": true
+  },
+  "notes": "Step 4 split only -- rows are an unmodified subset of Step 3's processed_metadata.jsonl. No model has been built, trained, evaluated, or optimized on this data yet (Steps 5-8)."
+}

@@ -1,0 +1,77 @@
+{
+  "step6_training": {
+    "source_report": "logs/training_summary.json",
+    "device": "mps",
+    "train_samples": 399,
+    "val_samples": 50,
+    "test_split_used": false,
+    "base_config": {
+      "batch_size": 32,
+      "learning_rate": 0.0002,
+      "weight_decay": 0.0001,
+      "optimizer": "AdamW",
+      "lr_scheduler": "cosine_with_warmup",
+      "warmup_steps_configured": 500,
+      "warmup_steps_effective": 7,
+      "checkpoint_every_n_epochs": 5,
+      "random_seed": 42,
+      "gradient_clip_val": 1.0,
+      "mixed_precision_used": false
+    },
+    "best_val_loss_step6_run": 0.9323277235031128
+  },
+  "step7_experiment_selected": {
+    "source_report": "experiments/best_experiment_config.json",
+    "name": "lr_high",
+    "description": "Higher learning rate (0.0002 -> 6e-04)",
+    "varied": [
+      "learning_rate"
+    ],
+    "hyperparameters": {
+      "learning_rate": 0.0006,
+      "batch_size": 32,
+      "weight_decay": 0.0001,
+      "gradient_clip_val": 1.0,
+      "diffusion_timesteps": 500,
+      "epochs": 3,
+      "random_seed": 42
+    },
+    "best_val_loss": 0.7715489959716797
+  },
+  "step8_test_evaluation": {
+    "source_report": "evaluation/evaluation_report.json",
+    "num_test_samples": 50,
+    "test_mse_matched_protocol": 0.7599588584899902,
+    "test_mae_matched_protocol": 0.6953975868225097,
+    "multi_timestep_overall_mean_mse": 0.7877911579608916,
+    "guarantees": {
+      "test_set_used_for_training": false,
+      "test_set_used_for_hyperparameter_tuning_or_checkpoint_selection": false,
+      "model_weights_modified_during_evaluation": false,
+      "model_architecture_modified": false,
+      "dataset_or_test_samples_modified": false,
+      "pretrained_weights_used": false
+    }
+  },
+  "step9_optimization": {
+    "source_report": "optimized/optimization_report.json",
+    "techniques_applied": [
+      "FP16 Half-Precision Weight Serialization (50% on-disk/stored-weight size reduction; compute runs upcast to fp32 for MPS/CPU numerical stability -- see memory_footprint_mb)",
+      "Magnitude-Based Global L1 Sparsity Pruning (10% non-critical weights)",
+      "Accelerated Reverse-Diffusion Sampler (50-step / 25-step strided inference)"
+    ],
+    "test_mse_optimized_fp16": 0.759962,
+    "fp16_mse_degradation_delta": 3.22e-06,
+    "degradation_within_acceptable_threshold": true,
+    "generation_speedup_50_steps": 11.8,
+    "guarantees": {
+      "original_step7_checkpoint_untouched": true,
+      "no_retraining_or_gradient_updates": true,
+      "no_dataset_modification": true,
+      "no_pretrained_models_used": true,
+      "step1_to_step8_preserved": true
+    },
+    "optimized_at": "2026-08-22T10:02:27.809114+00:00"
+  },
+  "notes": "Condensed from the full Step 6/7/8/9 reports (paths above) for quick reference; each source_report has the complete per-sample data."
+}

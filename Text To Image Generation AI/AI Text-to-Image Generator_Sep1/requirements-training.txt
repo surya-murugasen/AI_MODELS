@@ -1,0 +1,9 @@
+# Extra dependencies for the optional training-data pipeline
+# (backend/training/). Install into the same venv as the main app's
+# requirements.txt — this file only adds what that one doesn't already
+# have (torch, Pillow, etc. are assumed already installed).
+#
+#   pip install -r requirements-training.txt
+#
+datasets>=2.19
+tqdm>=4.66

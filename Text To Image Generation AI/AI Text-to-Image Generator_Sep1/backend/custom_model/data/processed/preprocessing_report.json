@@ -1,0 +1,72 @@
+{
+  "step": "Step 3: Data Cleaning & Preprocessing",
+  "completed_at": "2026-08-22T07:01:49.339126+00:00",
+  "execution_seconds": 0.25,
+  "counts": {
+    "raw_samples_total": 500,
+    "valid_samples_processed": 499,
+    "removed_corrupted_images": 0,
+    "removed_invalid_captions": 0,
+    "removed_duplicates": 1,
+    "rejection_rate_percent": 0.2
+  },
+  "tensor_specifications": {
+    "image_shape": [
+      3,
+      64,
+      64
+    ],
+    "image_dtype": "torch.float32",
+    "pixel_min": -0.9373,
+    "pixel_max": 0.9216,
+    "pixel_mean": -0.1894,
+    "pixel_std": 0.4036,
+    "text_sequence_length": 32,
+    "text_dtype": "torch.int64",
+    "vocabulary_size": 53
+  },
+  "vocabulary_preview": {
+    "special_tokens": {
+      "<pad>": 0,
+      "<start>": 1,
+      "<end>": 2,
+      "<unk>": 3
+    },
+    "sample_words": [
+      "<pad>",
+      "<start>",
+      "<end>",
+      "<unk>",
+      "a",
+      "backdrop",
+      "background",
+      "black",
+      "blue",
+      "bold",
+      "bright",
+      "canvas",
+      "circle",
+      "crimson",
+      "cross",
+      "cyan",
+      "dark",
+      "deep",
+      "diamond",
+      "electric",
+      "emerald",
+      "foggy",
+      "glowing",
+      "gold",
+      "gradient"
+    ]
+  },
+  "storage_locations": {
+    "raw_dir": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/raw",
+    "processed_dir": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed",
+    "processed_images_dir": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed/images",
+    "processed_tensors_dir": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed/tensors",
+    "processed_metadata": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed/processed_metadata.jsonl",
+    "vocab_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed/vocab.json",
+    "report_file": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/data/processed/preprocessing_report.json"
+  }
+}

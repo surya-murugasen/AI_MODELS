@@ -1,0 +1,13 @@
+Train No,Train Name,Origin,Destination,Platform,Scheduled Time,Current Speed (km/h),Distance (km),Previous Delay (min),Route Traffic,Weather
+12951,Mumbai Rajdhani Express,Mumbai Central,New Delhi,4,06:30 PM,68,42,8,Moderate,Clear
+12109,Panchavati Superfast,Mumbai Central,Mumbai,2,06:48 PM,74,28,0,Low,Clear
+12267,Ahmedabad AC Duronto,Mumbai Central,Ahmedabad,6,07:05 PM,62,55,2,Moderate,Clear
+12618,Mangala Superfast,Mumbai Central,Chennai,3,07:15 PM,80,64,0,Low,Clear
+12921,Flying Ranee Express,Mumbai Central,Jaipur,5,07:30 PM,58,78,4,Moderate,Rain
+12009,Mumbai Shatabdi Express,Mumbai Central,Ahmedabad,1,07:45 PM,85,34,0,Low,Clear
+22221,NZM Rajdhani Express,Mumbai Central,Hazrat Nizamuddin,4,08:10 PM,72,50,5,Moderate,Fog
+12903,Golden Temple Mail,Mumbai Central,Amritsar,2,08:35 PM,64,68,9,High,Rain
+12925,Paschim Superfast Express,Mumbai Central,Amritsar,5,09:00 PM,70,82,3,Moderate,Clear
+19015,Saurashtra Express,Mumbai Central,Porbandar,3,09:30 PM,55,95,12,High,Rain
+12953,August Kranti Tejas Rajdhani,Mumbai Central,Hazrat Nizamuddin,4,10:00 PM,88,40,0,Low,Clear
+12216,Delhi Sarai Rohilla Garib Rath,Mumbai Central,Delhi,6,10:30 PM,65,110,6,Moderate,Clear

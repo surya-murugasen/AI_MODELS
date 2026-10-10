@@ -1,0 +1,90 @@
+{
+  "step": "Step 9: Model Optimization",
+  "completed_at": "2026-08-22T10:02:30.740254+00:00",
+  "device": "mps",
+  "source_baseline_checkpoint": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/best_experiment_checkpoint.pt",
+  "optimization_techniques_applied": [
+    "FP16 Half-Precision Weight Serialization (50% on-disk/stored-weight size reduction; compute runs upcast to fp32 for MPS/CPU numerical stability -- see memory_footprint_mb)",
+    "Magnitude-Based Global L1 Sparsity Pruning (10% non-critical weights)",
+    "Accelerated Reverse-Diffusion Sampler (50-step / 25-step strided inference)"
+  ],
+  "metrics_comparison": {
+    "parameter_count": {
+      "baseline_fp32": 11974723,
+      "optimized_fp16": 11974723,
+      "unit": "parameters"
+    },
+    "model_weights_disk_size_mb": {
+      "baseline_full_checkpoint": 137.28,
+      "baseline_weights_only": 45.76,
+      "optimized_fp16_weights": 22.9,
+      "optimized_pruned_weights": 45.76,
+      "storage_reduction_percent": 49.94
+    },
+    "memory_footprint_mb": {
+      "baseline_fp32_runtime": 45.69,
+      "fp16_stored_weights": 22.84,
+      "fp16_runtime_compute": 45.69,
+      "stored_weights_reduction_percent": 50.0,
+      "runtime_compute_reduction_percent": 0.0,
+      "note": "fp16_stored_weights is measured directly from the FP16 state dict's own tensor byte sizes (genuinely ~50% smaller). fp16_runtime_compute is measured from the actual model instance used for inference/benchmarking below, whose weights are upcast back to fp32 after loading for MPS/CPU numerical stability -- so it equals the baseline: FP16 reduces stored/transfer size here, not runtime working memory or compute latency on this hardware."
+    },
+    "inference_forward_latency_ms": {
+      "baseline_fp32_batch1": 14.02,
+      "baseline_fp32_batch8": 46.68,
+      "optimized_fp16_batch1": 9.92
+    },
+    "generation_latency_seconds_per_image": {
+      "baseline_500_steps": 4.017,
+      "optimized_50_steps": 0.34,
+      "ultra_fast_25_steps": 0.173,
+      "speedup_factor_50_steps": 11.8,
+      "speedup_factor_25_steps": 23.2
+    },
+    "accuracy_and_quality": {
+      "test_mse_baseline_fp32": 0.759959,
+      "test_mse_optimized_fp16": 0.759962,
+      "test_mse_optimized_pruned_10pct": 0.760033,
+      "fp16_mse_degradation_delta": 3.22e-06,
+      "pruned_mse_degradation_delta": 7.431e-05,
+      "degradation_within_acceptable_threshold": true
+    }
+  },
+  "saved_artifacts": {
+    "best_optimized_model": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/best_optimized_model.pt",
+    "optimized_fp16_model": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/optimized_model_fp16.pt",
+    "optimized_pruned_model": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/optimized_model_pruned.pt",
+    "optimization_report": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/optimization_report.json",
+    "samples_dir": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/samples"
+  },
+  "qualitative_samples": [
+    {
+      "id": 3,
+      "prompt": "a emerald triangle on a foggy backdrop",
+      "comparison_image": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/samples/comparison_sample_00003_real_fp32_fp16.png"
+    },
+    {
+      "id": 15,
+      "prompt": "a silver circle on a dark background",
+      "comparison_image": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/samples/comparison_sample_00015_real_fp32_fp16.png"
+    },
+    {
+      "id": 23,
+      "prompt": "a turquoise diamond on a starry night",
+      "comparison_image": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/samples/comparison_sample_00023_real_fp32_fp16.png"
+    },
+    {
+      "id": 49,
+      "prompt": "a orange circle on a white background",
+      "comparison_image": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/optimized/samples/comparison_sample_00049_real_fp32_fp16.png"
+    }
+  ],
+  "guarantees": {
+    "original_step7_checkpoint_untouched": true,
+    "no_retraining_or_gradient_updates": true,
+    "no_dataset_modification": true,
+    "no_pretrained_models_used": true,
+    "step1_to_step8_preserved": true
+  },
+  "notes": "Step 9 optimization only -- applied FP16 half-precision compression and accelerated sampling to the Step 7 winning model. Zero retraining was performed. The original Step 7 checkpoint remains completely untouched as the reference baseline."
+}

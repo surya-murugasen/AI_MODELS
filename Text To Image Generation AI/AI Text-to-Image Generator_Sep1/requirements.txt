@@ -1,0 +1,12 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+# torch/diffusers/transformers/accelerate are left unpinned (with floors) on
+# purpose: torch only ships wheels for recent Python versions, so a hard pin
+# here breaks on newer Python installs. pip will pick the latest compatible
+# versions for your machine.
+torch>=2.4
+diffusers>=0.30
+transformers>=4.44
+accelerate>=0.34
+Pillow>=10.4
+python-multipart>=0.0.9

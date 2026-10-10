@@ -1,0 +1,82 @@
+{
+  "dataset_name": "custom_model_step2_synthetic_shapes",
+  "source_type": "synthetic_procedural",
+  "total_samples": 500,
+  "image_size": [
+    64,
+    64
+  ],
+  "channels": 3,
+  "unique_shapes": [
+    "circle",
+    "square",
+    "triangle",
+    "diamond",
+    "star",
+    "hexagon",
+    "cross"
+  ],
+  "unique_colors": [
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "purple",
+    "orange",
+    "pink",
+    "cyan",
+    "magenta",
+    "turquoise",
+    "gold",
+    "silver",
+    "crimson",
+    "emerald",
+    "violet",
+    "indigo"
+  ],
+  "unique_backgrounds": [
+    "a dark background",
+    "a deep sky",
+    "a white background",
+    "a soft gradient",
+    "a starry night",
+    "a pastel background",
+    "a black canvas",
+    "a foggy backdrop"
+  ],
+  "shape_distribution": {
+    "circle": 84,
+    "square": 76,
+    "triangle": 74,
+    "diamond": 70,
+    "star": 69,
+    "hexagon": 53,
+    "cross": 74
+  },
+  "color_distribution": {
+    "red": 32,
+    "blue": 26,
+    "green": 29,
+    "yellow": 32,
+    "purple": 27,
+    "orange": 35,
+    "pink": 39,
+    "cyan": 21,
+    "magenta": 22,
+    "turquoise": 40,
+    "gold": 28,
+    "silver": 39,
+    "crimson": 28,
+    "emerald": 36,
+    "violet": 28,
+    "indigo": 38
+  },
+  "generation_seed": 42,
+  "license": "CC0 (procedurally generated; no scraped or third-party imagery)",
+  "collected_at": "2026-08-22T06:50:13.428002+00:00",
+  "storage": {
+    "images_dir": "data/raw/images",
+    "metadata_file": "data/raw/raw_metadata.jsonl"
+  },
+  "notes": "Step 2 raw collection only -- no cleaning, preprocessing, splitting, or training performed on this data yet."
+}

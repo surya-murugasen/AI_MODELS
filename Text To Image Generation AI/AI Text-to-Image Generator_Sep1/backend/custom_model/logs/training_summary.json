@@ -1,0 +1,45 @@
+{
+  "step": "Step 6: Training Pipeline",
+  "completed_at": "2026-08-22T08:53:39.733055+00:00",
+  "device": "mps",
+  "epochs_run": 1,
+  "final_epoch": 3,
+  "train_samples": 399,
+  "val_samples": 50,
+  "test_split_used": false,
+  "best_val_loss": 0.9323277235031128,
+  "final_train_loss": 0.939062,
+  "final_val_loss": 0.932328,
+  "total_training_seconds": 12.19,
+  "checkpoints": {
+    "latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/checkpoints/checkpoint_latest.pt",
+    "best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/checkpoints/checkpoint_best.pt"
+  },
+  "config": {
+    "batch_size": 32,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "lr_scheduler": "cosine_with_warmup",
+    "warmup_steps_configured": 500,
+    "warmup_steps_effective": 7,
+    "checkpoint_every_n_epochs": 5,
+    "random_seed": 42,
+    "gradient_clip_val": 1.0,
+    "mixed_precision_used": false
+  },
+  "history": [
+    {
+      "epoch": 3,
+      "train_loss": 0.939062,
+      "val_loss": 0.932328,
+      "best_val_loss": 0.932328,
+      "is_best": true,
+      "learning_rate": 0.0,
+      "elapsed_seconds": 11.54,
+      "global_step": 39,
+      "timestamp": "2026-08-22T08:53:39.731922+00:00"
+    }
+  ],
+  "notes": "Step 6 training only -- trained on the TRAIN split, validated on the VALIDATION split, and never loaded the TEST split. No pretrained weights were used. Steps 7-9 (tuning, final evaluation, optimization) have not been run."
+}

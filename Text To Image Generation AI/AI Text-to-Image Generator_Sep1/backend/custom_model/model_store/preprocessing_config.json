@@ -1,0 +1,21 @@
+{
+  "target_image_width": 64,
+  "target_image_height": 64,
+  "target_image_channels": 3,
+  "pixel_range": [
+    -1.0,
+    1.0
+  ],
+  "pixel_normalization": "x_norm = (uint8_pixel / 127.5) - 1.0  (see preprocess.py: DatasetPreprocessor.process_image)",
+  "resample_filter": "bicubic",
+  "max_caption_chars": 200,
+  "min_caption_chars": 3,
+  "max_text_length": 32,
+  "special_tokens": {
+    "<pad>": 0,
+    "<start>": 1,
+    "<end>": 2,
+    "<unk>": 3
+  },
+  "tokenizer": "Deterministic word-level tokenizer (see preprocess.py: TextTokenizer) -- vocabulary in vocab.json"
+}

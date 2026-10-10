@@ -1,0 +1,67 @@
+{
+  "step": "Step 6: Training Pipeline",
+  "completed_at": "2026-08-22T09:06:46.192632+00:00",
+  "device": "mps",
+  "epochs_run": 3,
+  "final_epoch": 3,
+  "train_samples": 399,
+  "val_samples": 50,
+  "test_split_used": false,
+  "best_val_loss": 0.956986129283905,
+  "final_train_loss": 0.959328,
+  "final_val_loss": 0.956986,
+  "total_training_seconds": 33.53,
+  "checkpoints": {
+    "latest": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_large/checkpoint_latest.pt",
+    "best": "/Users/administrator/AI models/AI Text-to-Image Generator/backend/custom_model/experiments/batch_large/checkpoint_best.pt"
+  },
+  "config": {
+    "batch_size": 64,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "lr_scheduler": "cosine_with_warmup",
+    "warmup_steps_configured": 500,
+    "warmup_steps_effective": 4,
+    "checkpoint_every_n_epochs": 5,
+    "random_seed": 42,
+    "gradient_clip_val": 1.0,
+    "mixed_precision_used": false
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.998579,
+      "val_loss": 0.987769,
+      "best_val_loss": 0.987769,
+      "is_best": true,
+      "learning_rate": 0.00018502171357296144,
+      "elapsed_seconds": 10.36,
+      "global_step": 7,
+      "timestamp": "2026-08-22T09:06:24.046454+00:00"
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.978518,
+      "val_loss": 0.963879,
+      "best_val_loss": 0.963879,
+      "is_best": true,
+      "learning_rate": 7.263370099279172e-05,
+      "elapsed_seconds": 10.11,
+      "global_step": 14,
+      "timestamp": "2026-08-22T09:06:34.976560+00:00"
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.959328,
+      "val_loss": 0.956986,
+      "best_val_loss": 0.956986,
+      "is_best": true,
+      "learning_rate": 0.0,
+      "elapsed_seconds": 10.28,
+      "global_step": 21,
+      "timestamp": "2026-08-22T09:06:46.191754+00:00"
+    }
+  ],
+  "notes": "Step 6 training only -- trained on the TRAIN split, validated on the VALIDATION split, and never loaded the TEST split. No pretrained weights were used. Steps 7-9 (tuning, final evaluation, optimization) have not been run."
+}

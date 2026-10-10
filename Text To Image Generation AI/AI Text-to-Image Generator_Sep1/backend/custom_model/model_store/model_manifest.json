@@ -1,0 +1,84 @@
+{
+  "step": "Step 10: Model Storage",
+  "artifact_version": "v1",
+  "created_at": "2026-08-22T10:17:04.040339+00:00",
+  "framework": "PyTorch 2.13.0",
+  "python_version": "3.14.3",
+  "platform": "macOS (Apple Silicon, arm64) -- backend/.venv/pyvenv.cfg: home=/opt/homebrew/opt/python@3.14/bin",
+  "device_used_to_create_weights": "mps",
+  "source_checkpoint": {
+    "path": "optimized/best_optimized_model.pt",
+    "sha256": "daa09f33b7b68e03dab72a50c103bcb3f53db35158e09a34c913e001ee852607",
+    "precision": "fp16",
+    "recommended_generation_steps": 50,
+    "optimized_at": "2026-08-22T10:02:27.809114+00:00"
+  },
+  "checksum_match_source_vs_stored": true,
+  "artifacts": [
+    {
+      "file": "model_v1.pt",
+      "purpose": "Final model weights (Step 9's optimized FP16 state dict + reload metadata), copied byte-for-byte from optimized/best_optimized_model.pt.",
+      "size_bytes": 24017242,
+      "sha256": "daa09f33b7b68e03dab72a50c103bcb3f53db35158e09a34c913e001ee852607"
+    },
+    {
+      "file": "architecture_config.json",
+      "purpose": "Model architecture (Step 5 ModelArchitectureConfig) and problem/diffusion specification (Step 1 ProblemSpecification, with this checkpoint's actual diffusion_timesteps/vocab_size) needed to reconstruct the exact nn.Module before loading the weights.",
+      "size_bytes": 1055,
+      "sha256": "0b277f367c478882f35fa4818d7001e1acfd91dc4ad4ffeb2a9d645f21fbd18c"
+    },
+    {
+      "file": "vocab.json",
+      "purpose": "Tokenizer vocabulary (Step 3 word<->id mapping + special tokens) required to turn new text prompts into token ids this model understands.",
+      "size_bytes": 2124,
+      "sha256": "4d416cbf779bdc70aca83b3441db3ebd3b2f7ebb157dfa6801aede8ab7117c57"
+    },
+    {
+      "file": "preprocessing_config.json",
+      "purpose": "Step 3 image/text preprocessing contract (target size, pixel normalization, tokenizer settings) required to preprocess new inputs identically to training and to decode generated output correctly.",
+      "size_bytes": 571,
+      "sha256": "d2f7643db87c60e87c8bad38cda654c8451ce0690605205e943878d80924b1b7"
+    },
+    {
+      "file": "reproducibility_metadata.json",
+      "purpose": "Condensed Step 6 (training) / Step 7 (winning experiment) / Step 8 (test evaluation) / Step 9 (optimization) results, for reproducibility without re-reading four separate report files.",
+      "size_bytes": 2835,
+      "sha256": "574c02375d4e7cc1f9415ae28ed2a66003a6c8f78a48f07c936abc7b7376c45a"
+    }
+  ],
+  "how_to_load": "from backend.custom_model.model_storage import load_model; model, meta = load_model()",
+  "guarantees": {
+    "no_retraining": true,
+    "no_further_tuning": true,
+    "no_further_evaluation": true,
+    "no_further_optimization": true,
+    "no_pretrained_weights_used": true,
+    "step7_checkpoint_untouched": true,
+    "step6_to_step9_outputs_untouched": true,
+    "model_store_is_the_only_thing_written_by_this_step": true
+  },
+  "round_trip_verification": {
+    "checks": {
+      "state_dict_keys_match": true,
+      "state_dict_tensors_identical": true,
+      "forward_pass_output_identical": true,
+      "generate_output_identical": true
+    },
+    "forward_pass_max_abs_diff": 0.0,
+    "generate_max_abs_diff": 0.0,
+    "generate_prompt_used": "a emerald triangle on a foggy backdrop",
+    "generate_output_shape": [
+      1,
+      3,
+      64,
+      64
+    ],
+    "generate_num_steps": 20,
+    "all_checks_passed": true,
+    "verified_at": "2026-08-22T10:15:54.014203+00:00",
+    "verification_device": "cpu",
+    "verification_torch_version": "2.13.0+cu130",
+    "verification_note": "This project's own Linux sandbox tooling cannot import torch, so this exact check was run in a separate verified PyTorch 2.13.0 (CPU) environment against a staged copy of this SAME checkpoint file -- confirmed byte-identical by matching sha256 (see source_checkpoint.sha256 above) before the check ran. All four checks (state-dict tensor equality, forward() output equality, seeded generate() output equality) passed with max abs diff == 0.0, i.e. bit-for-bit identical, not merely close. Re-running `python -m backend.custom_model.model_storage` directly on this machine (with its real torch/mps) will repeat and re-confirm this same check locally."
+  },
+  "notes": "Step 10 storage only -- packaged Step 9's already-finished optimized model. No training, tuning, evaluation, or optimization was performed in this step."
+}
